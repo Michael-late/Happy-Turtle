@@ -3,7 +3,6 @@ from turtle import Screen
 from player import Player
 from car_manager import CarManager
 from scoreboard import Scoreboard
-from level import Level
 
 def up():
     pos = player.pos()
@@ -23,7 +22,7 @@ player = Player()
 
 #display level
 current_level = 0
-level = Level(current_level)
+level = Scoreboard(current_level)
 
 game_is_on = True
 while game_is_on:
