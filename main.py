@@ -3,12 +3,33 @@ from turtle import Screen
 from player import Player
 from car_manager import CarManager
 from scoreboard import Scoreboard
+from level import Level
 
+def up():
+    pos = player.pos()
+    player.goto(pos[0],pos[1]+20)
+
+    
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
+
+#event listener
+screen.onkey(up,"Up")
+screen.listen()
+
+#car
+player = Player()
+
+#display level
+current_level = 0
+level = Level(current_level)
 
 game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
+
+    if player.ycor() > 280:
+        player.reset()
+        level.nextLevel()
