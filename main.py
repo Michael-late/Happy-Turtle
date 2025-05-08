@@ -17,8 +17,11 @@ screen.tracer(0)
 screen.onkey(up,"Up")
 screen.listen()
 
-#car
+#turtle
 player = Player()
+
+#cars
+car = CarManager()
 
 #display level
 current_level = 0
@@ -28,7 +31,8 @@ game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
-
+    car.move()
+    
     if player.ycor() > 280:
         player.reset()
         level.nextLevel()
