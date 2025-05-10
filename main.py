@@ -29,10 +29,20 @@ level = Scoreboard(current_level)
 
 game_is_on = True
 while game_is_on:
-    time.sleep(0.1)
+    time.sleep(player.speeds)
     screen.update()
+    car.generate_car()
     car.move()
-    
+
     if player.ycor() > 280:
         player.reset()
         level.nextLevel()
+
+    #collision
+    for carx in car.cars:
+        if player.distance(carx) < 20:
+            level.over()
+            game_is_on = False
+
+
+screen.exitonclick()

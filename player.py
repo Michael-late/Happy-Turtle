@@ -8,6 +8,7 @@ FINISH_LINE_Y = 280
 class Player(Turtle):
     def __init__(self, shape = "classic", undobuffersize = 1000, visible = True):
         super().__init__(shape, undobuffersize, visible)
+        self.speeds = 0.1
         self.penup()
         self.shape("turtle")
         self.color("grey")
@@ -16,5 +17,6 @@ class Player(Turtle):
 
     def reset(self):
         self.setpos(STARTING_POSITION)
+        self.speeds *= 0.5
         
 

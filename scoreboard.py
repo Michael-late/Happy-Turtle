@@ -18,5 +18,10 @@ class Scoreboard(Turtle):
 
     def nextLevel(self):
         self.level += 1
-        self.update()    
+        self.update()
+
+    def over(self):
+        self.home()
+        self.write(f"Game OVER",align="center",font=("Arial",24,"normal"))
+
 
